@@ -1,0 +1,21 @@
+---
+interface Props {
+	title?: string;
+}
+
+const { title: pageTitle } = Astro.props;
+const SiteName = "Clikuki's Blog";
+const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
