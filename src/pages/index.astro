@@ -1,21 +1,20 @@
 ---
-import { getCollection } from "astro:content"
-import Layout from "../layouts/Layout.astro"
+import type { AstroInstance } from "astro";
+import Layout from "../layouts/Layout.astro";
 
-const blogPosts = await getCollection("blog");
+// await glob()
+
+interface PostInstance extends AstroInstance {
+  title: string;
+}
+
+const posts = import.meta.glob<PostInstance>("./posts/*.astro", { eager: true });
+for(const [path, post] of Object.entries(posts)) {
+	console.log(path, post.title, post.url);
+}
 ---
 
 <Layout>
-	{
-		blogPosts.flatMap(post => [
-			<article>
-				<time datetime={post.data.date.toISOString()}>{post.data.date.toDateString()}</time>
-				<h2><a href={"/blog/" + post.id}>{post.data.title}</a></h2>
-				<p>{post.data.excerpt}</p>
-				<a href={"/blog/" + post.id}>→ Read more...</a>
-			</article>
-		])
-	}
 </Layout>
 
 <style>
