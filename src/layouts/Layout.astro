@@ -14,15 +14,20 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="shortcut icon" href="/blog/favicon.ico" type="image/x-icon">
 		<link rel="preload" href="/blog/fonts/open-sans-v44-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 		<link rel="preload" href="/blog/fonts/open-sans-v44-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 	</head>
 	<body>
 		<header>
-			<h1>Clikuki's Words and Whatnot</h1>
-			<p><i>A collection of barely coherent posts</i></p>
+			<h1>Clikuki's Blog</h1>
+			<p><i>Assorted collection of nonsense</i></p>
 		</header>
-		<slot />
+		<main>
+			<div>
+				<slot />
+			</div>
+		</main>
 	</body>
 </html>
 
@@ -74,6 +79,8 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 		display: grid;
 		/* grid-template-columns: 1fr 150ch 1fr; */
 		grid-template-columns: 1fr 5fr 1fr;
+
+		font-family: monospace;
 		
 		padding: 1rem;
 		background-color: #d96f32;
@@ -85,7 +92,6 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 
 		h1 {
 			grid-column: 2;
-			font-weight: 400;
 			font-size: 3rem;
 			margin: 0;
 		}
@@ -93,6 +99,18 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 		p {
 			grid-column: 2;
 			margin: 0 0 1rem 1rem;
+		}
+	}
+
+	
+	main {
+		display: flex;
+		justify-content: center;
+		padding: 2rem 3rem 0 3rem;
+
+		/* Wrapper for centering majig */
+		> div {
+			width: 80ch;
 		}
 	}
 

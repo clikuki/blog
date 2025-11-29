@@ -6,53 +6,40 @@ const blogPosts = await getCollection("blog");
 ---
 
 <Layout>
-	<main>
-		<div>
-			{
-				blogPosts.flatMap(post => [
-					<article>
-						<time datetime={post.data.date.toISOString()}>{post.data.date.toDateString()}</time>
-						<h2><a href={"/blog/" + post.id}>{post.data.title}</a></h2>
-						<p>{post.data.excerpt}</p>
-						<a href={"/blog/" + post.id}>→ Read more...</a>
-					</article>
-				])
-			}
-		</div>
-	</main>
+	{
+		blogPosts.flatMap(post => [
+			<article>
+				<time datetime={post.data.date.toISOString()}>{post.data.date.toDateString()}</time>
+				<h2><a href={"/blog/" + post.id}>{post.data.title}</a></h2>
+				<p>{post.data.excerpt}</p>
+				<a href={"/blog/" + post.id}>→ Read more...</a>
+			</article>
+		])
+	}
 </Layout>
 
 <style>
-	main {
-		display: flex;
-		justify-content: center;
-		padding: 2rem 3rem 0 3rem;
+	time {
+		color: gray;
+	}
 
-		/* Wrapper for centering majig */
-		> div {
-			width: 100ch;
-		}
-
-		time {
-			color: gray;
-		}
-
-		h2 {
-			font-size: 2rem;
-			margin: 0;
-
-			a {
-				text-decoration: none;
-				color: inherit;
-			}
-		}
-
-		p {
-			margin: 0.5rem 1rem 1rem 1rem;
-		}
+	h2 {
+		font-size: 2rem;
+		margin: 0;
 
 		a {
-			color: #2795b6;
+			text-decoration: none;
+			color: inherit;
 		}
+	}
+
+	p {
+		color: #2e2e2e;
+		font-style: italic;
+		margin: 0.5rem 1rem 3rem 0;
+	}
+
+	a {
+		color: #2795b6;
 	}
 </style>

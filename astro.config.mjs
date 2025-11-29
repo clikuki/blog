@@ -6,5 +6,10 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://clikuki.github.io/blog",
   base: "/blog",
-  integrations: [mdx({})],
+  integrations: [mdx({
+		syntaxHighlight: 'shiki',
+		shikiConfig: {
+			theme: 'monokai',
+		}
+	})],
 });

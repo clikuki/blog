@@ -1,8 +1,9 @@
 ---
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
 import type { GetStaticPaths } from 'astro';
+import Layout from '../layouts/Layout.astro';
+import PostHead from '../components/PostHead.astro';
 
 interface Props {
 	post: CollectionEntry<"blog">
@@ -21,10 +22,6 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title}>
-	<main>
-		<time datetime={post.data.date.toISOString()}>{post.data.date.toDateString()}</time>
-		<h1>{post.data.title}</h1>
-		<p>{post.data.excerpt}</p>
-		<Content />
-	</main>
+	<PostHead post={post} />
+	<Content />
 </Layout>
