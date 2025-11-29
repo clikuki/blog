@@ -1,20 +1,13 @@
 ---
-import type { AstroInstance } from "astro";
+import { posts } from "../scripts/getContent";
 import Layout from "../layouts/Layout.astro";
-
-// await glob()
-
-interface PostInstance extends AstroInstance {
-  title: string;
-}
-
-const posts = import.meta.glob<PostInstance>("./posts/*.astro", { eager: true });
-for(const [path, post] of Object.entries(posts)) {
-	console.log(path, post.title, post.url);
-}
+import PostItem from "../components/PostItem.astro";
 ---
 
 <Layout>
+	{
+		posts.map((post) => <PostItem post={post}/>)
+	}
 </Layout>
 
 <style>

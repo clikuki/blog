@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from "astro";
+import { posts } from "../scripts/getContent";
+import Layout from "../layouts/Layout.astro";
+
+
+export const getStaticPaths = (() => {
+	return posts.map((post) => ({
+		params: {
+			slug: post.slug,
+		},
+		props: {
+			title: post.file.title,
+			PostMarkup: post.file.default,
+		},
+	}));
+}) satisfies GetStaticPaths;
+
+const { title, PostMarkup } = Astro.props;
+---
+
+<Layout>
+	<h2>{title}</h2>
+	<PostMarkup />
+</Layout>

@@ -1,0 +1,22 @@
+---
+import { join } from "path/posix";
+import type { Post } from '../scripts/getContent';
+
+interface Props {
+	post: Post;
+}
+
+const { post } = Astro.props;
+const url = join(Astro.site!.pathname, post.slug);
+---
+
+<article>
+	<a href={url}><h2>{post.file.title}</h2></a>
+</article>
+
+<style>
+	h2 {
+		color: var(--darker);
+		text-decoration: underline currentColor 2px;
+	}
+</style>
