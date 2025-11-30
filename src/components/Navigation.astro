@@ -1,0 +1,25 @@
+---
+import { join } from "path/posix";
+import type { Post } from "../misc";
+
+interface Props {
+	prev: Post | null;
+	next: Post | null;
+}
+
+const { prev, next } = Astro.props;
+
+const baseURL = Astro.site!.pathname;
+const prevURL = prev ? join(baseURL, prev.slug) : "";
+const nextURL = next ? join(baseURL, next.slug) : "";
+---
+
+<>
+	{
+		prevURL ? <a href={prevURL}>← Previous</a> : null
+	}
+	<a href={baseURL}>Home</a>
+	{
+		nextURL ? <a href={nextURL}>Next →</a> : null
+	}
+</>

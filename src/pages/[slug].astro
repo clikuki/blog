@@ -2,9 +2,9 @@
 import type { GetStaticPaths } from "astro";
 import type { Post, PostInstance } from "../misc";
 import type { AstroComponentFactory } from "astro/runtime/server/index.js";
-import { join } from "path/posix";
 import { posts } from "../scripts/getContent";
 import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
 
 interface Props {
 	file: PostInstance;
@@ -33,12 +33,12 @@ const {
 	next,
 	PostMarkup,
 } = Astro.props;
-
-const prevURL = prev ? join(Astro.site!.pathname, prev.slug) : "";
-const nextURL = next ? join(Astro.site!.pathname, next.slug) : "";
 ---
 
-<Layout>
+<Layout title={title}>
+	<header>
+		<Navigation prev={prev} next={next} />
+	</header>
 	<time datetime={date.toISOString()}>
 		{date.toLocaleString("default", { month: "short" })}
 		{date.getDate()},
@@ -48,12 +48,7 @@ const nextURL = next ? join(Astro.site!.pathname, next.slug) : "";
 	<p><i>{excerpt}</i></p>
 	<PostMarkup />
 	<footer>
-		{
-			prevURL ? <a href={prevURL}>← Previous</a> : undefined
-		}
-		{
-			nextURL ? <a href={nextURL}>Next →</a> : undefined
-		}
+		<Navigation prev={prev} next={next} />
 	</footer>
 </Layout>
 
@@ -74,15 +69,28 @@ const nextURL = next ? join(Astro.site!.pathname, next.slug) : "";
 		margin: 0;
 	}
 
+	header {
+		padding-bottom: .5rem;
+		margin-bottom: 1.5rem;
+		border-bottom: 1px solid var(--lgray);
+	}
+
 	footer {
-		padding-top: 1rem;
-		display: flex;
-		justify-content: center;
-		gap: 2rem;
+		padding-top: .5rem;
+		margin-top: 1.5rem;
+		border-top: 1px solid var(--lgray);
+	}
+
+	header, footer {
+		text-align: center;
 
 		a {
 			color: var(--darker);
 			text-decoration: none;
+
+			&:nth-child(2) {
+				margin: 0 1rem;
+			}
 
 			&:hover {
 				text-decoration: underline;
