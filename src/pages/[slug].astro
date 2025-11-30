@@ -5,6 +5,7 @@ import type { AstroComponentFactory } from "astro/runtime/server/index.js";
 import { posts } from "../scripts/getContent";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
+import "../blogPost.css";
 
 interface Props {
 	file: PostInstance;
@@ -61,6 +62,7 @@ const {
 	h2 {
 		font-size: 2rem;
 		margin: 0;
+		color: var(--black);
 	}
 
 	p {
@@ -76,7 +78,7 @@ const {
 	}
 
 	footer {
-		padding-top: .5rem;
+		padding: .5rem 0 1rem 0;
 		margin-top: 1.5rem;
 		border-top: 1px solid var(--lgray);
 	}

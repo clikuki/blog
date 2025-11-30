@@ -1,13 +1,119 @@
 ---
-export const title = "First Post";
-export const date = new Date("2025-11-29");
+import Image from "astro/components/Image.astro";
+import feeding_panda from "../images/feeding_panda.jpg";
+import smokey_eating from "../images/smokey_eating.jpg";
+import marble_scritch_1 from "../images/marble_scritch_1.jpg";
+import marble_scritch_2 from "../images/marble_scritch_2.jpg";
+import marble_face_bury from "../images/marble_burying_her_face.jpg";
+import script_work from "../images/script_work.jpg";
+import blinding_xmas_tree from "../images/blinding_christmas_tree.gif";
+
+export const title = "first post, yippee";
+export const date = new Date("2025-11-30");
 export const excerpt = "Hello, world.";
 ---
 
-<>
-	<ol>
-		<li>One</li>
-		<li>Two</li>
-		<li>Three</li>
-	</ol>
-</>
+<div class="post-body">
+	<p>
+		Let's get some things out of the way: Hello po <small><ruby>🇵🇭<rp>(</rp><rt>jumpscare</rt><rp>)</rp></ruby></small>, Sir Shan. This, and every post in this blog, is my submission for our performance task in Media and Information Literacy. From what I remember, the task was to create a day-in-a-life <i>something</i>, in whatever medium we wanted.
+	</p>
+	<p>
+		Anyway, thanks to the wonderful suggestion of Marcus <i>(very coggers)</i>, I have decided to go with a blog. Despite its relative antiquity in comparison to modern digital forms, it seems cool, and is also one that makes use of the <abbr title="Web development">webdev</abbr> skills I have. Besides, I've been floating the idea of making a blog for a whiiiile now, but wasn't sure what to put in it, so this is a nice excuse.
+	</p>
+	<p>
+		One thing I am unsure of is whether day-in-a-life means an detailed look of one specific day in my life, because if so, then I may be taking some creative liberties with my interpretation of the performance task.
+	</p>
+
+	<h3>With all that sorted,</h3>
+	<p>
+		... let's get on with the day-to-day stuffs. Like most weekends, I woke up today on the very early time of ~9AM. On weekends, my chores include feeding our pets on the weekends.
+	</p>
+
+	<div class="image-set">
+		<Image
+			src={feeding_panda}
+			alt="Our dog, panda, waiting for her meal"
+			width={300}
+		/>
+		<Image
+			src={smokey_eating}
+			alt="Smokey is working on her breakfast"
+			width={300}
+		/>
+	</div>
+
+	<p>
+		Right afterwards, I returned to my room where I found one of our cats on my bed, trying to get my attention and succeeding. This happens pretty often, but I'll try and keep this blog updated with her snuggles.
+	</p>
+
+	<div class="collage">
+		<Image
+			src={marble_scritch_1}
+			alt="Marble getting a scritch from the side"
+			width={300}
+		/>
+		<Image
+			src={marble_scritch_2}
+			alt="Marble looking forward while getting scritched"
+			width={300}
+		/>
+		<Image
+			src={marble_face_bury}
+			alt="Marble buries her face in my pants"
+			width={300}
+		/>
+	</div>
+
+	<p>
+		Afterwards, my family went to our Tito's grave. For obvious reasons, I didn't take a picture, but I can say that it was a damn hot day out, even more so when I had to find some cup to fit our candle that had too short a wick to stay alight for long. Worse, I'd forgotten to bring a towel!
+	</p>
+
+	<p>
+		Once we got home, I got on to working on my schoolwork. First was writing my draft of our script for our project in Entrepreneurship. One lunch and several snacks later <small><i>(See bananas in image below)</i></small>, I moved on to the programming of this blog website. This involved many hours of <span>pain</span> and <span>anguish</span> as I wrestle with the framework <em>(curse you, astro mdx integration!)</em>, but hours later, I got something up and running. Unfortunately, I don't have much pictures of those sessions, mostly because I was focused and it would be boring to do so, but take this image of our script.
+	</p>
+
+	<figure>
+		<Image
+			src={script_work}
+			alt="Photo of script draft from my phone lol"
+			width={500}
+		/>
+		<figcaption>Intriguing stuff.</figcaption>
+	</figure>
+
+	<div class="side-by-side">
+		<div>
+			<p>
+				And, that was the day done. As I am finishing this off, it is currently 12:51 AM, so I definitely need to stop. This was mostly images, but I'm not entirely certain what to write in detail, and images are more interesting anyway. In the coming days and blog posts, I plan on working on this website and hopefully having more dynamic and interactive features, but that's far off.
+			</p>
+			<p>
+				To end off this blog's first post, here is a ridiculously flashy to the point of blinding christmas tree that my mother setup. Happy early Christmas, ya'll.
+			</p>
+		</div>
+		<img
+			src={blinding_xmas_tree.src}
+			alt="A very flashy, frankly blinding, christmas tree"
+			width={200}
+		/>
+	</div>
+</div>
+
+<style>
+	ruby:not(:hover) {
+		opacity: 0.05;
+		filter: grayscale(1);
+	}
+
+	span {
+		color: darkred;
+	}
+
+	.collage {
+		height: 27rem;
+		>img {
+			&:nth-of-type(1) { translate: -60% -25%; rotate: -20deg; }
+			&:nth-of-type(2) { translate: 10% 35%; rotate: 10deg; }
+			&:nth-of-type(3) { translate: 70% -20%; rotate: 20deg; }
+		}
+	}
+</style>
