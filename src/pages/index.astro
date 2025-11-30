@@ -6,32 +6,6 @@ import PostItem from "../components/PostItem.astro";
 
 <Layout>
 	{
-		posts.map((post) => <PostItem post={post}/>)
+		posts.toReversed().map((post) => <PostItem post={post}/>)
 	}
 </Layout>
-
-<style>
-	time {
-		color: gray;
-	}
-
-	h2 {
-		font-size: 2rem;
-		margin: 0;
-
-		a {
-			text-decoration: none;
-			color: inherit;
-		}
-	}
-
-	p {
-		color: #2e2e2e;
-		font-style: italic;
-		margin: 0.5rem 1rem 3rem 0;
-	}
-
-	a {
-		color: #2795b6;
-	}
-</style>

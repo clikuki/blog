@@ -1,25 +1,92 @@
 ---
 import type { GetStaticPaths } from "astro";
+import type { Post, PostInstance } from "../misc";
+import type { AstroComponentFactory } from "astro/runtime/server/index.js";
+import { join } from "path/posix";
 import { posts } from "../scripts/getContent";
 import Layout from "../layouts/Layout.astro";
 
+interface Props {
+	file: PostInstance;
+	prev: Post | null;
+	next: Post | null;
+	PostMarkup: AstroComponentFactory;
+}
 
 export const getStaticPaths = (() => {
-	return posts.map((post) => ({
+	return posts.map((post, i) => ({
 		params: {
 			slug: post.slug,
 		},
 		props: {
-			title: post.file.title,
+			file: post.file,
+			prev: posts[i - 1] ?? null,
+			next: posts[i + 1] ?? null,
 			PostMarkup: post.file.default,
-		},
+		} satisfies Props,
 	}));
 }) satisfies GetStaticPaths;
 
-const { title, PostMarkup } = Astro.props;
+const {
+	file: { title, date, excerpt },
+	prev,
+	next,
+	PostMarkup,
+} = Astro.props;
+
+const prevURL = prev ? join(Astro.site!.pathname, prev.slug) : "";
+const nextURL = next ? join(Astro.site!.pathname, next.slug) : "";
 ---
 
 <Layout>
+	<time datetime={date.toISOString()}>
+		{date.toLocaleString("default", { month: "short" })}
+		{date.getDate()},
+		{date.getFullYear()}
+	</time>
 	<h2>{title}</h2>
+	<p><i>{excerpt}</i></p>
 	<PostMarkup />
+	<footer>
+		{
+			prevURL ? <a href={prevURL}>← Previous</a> : undefined
+		}
+		{
+			nextURL ? <a href={nextURL}>Next →</a> : undefined
+		}
+	</footer>
 </Layout>
+
+
+<style>
+	time {
+		color: var(--gray);
+	}
+
+	h2 {
+		font-size: 2rem;
+		margin: 0;
+	}
+
+	p {
+		color: var(--gray);
+		padding: .5rem 1rem 1rem 1rem;
+		margin: 0;
+	}
+
+	footer {
+		padding-top: 1rem;
+		display: flex;
+		justify-content: center;
+		gap: 2rem;
+
+		a {
+			color: var(--darker);
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+</style>

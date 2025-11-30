@@ -1,22 +1,60 @@
 ---
 import { join } from "path/posix";
-import type { Post } from '../scripts/getContent';
+import type { Post } from '../misc';
 
 interface Props {
 	post: Post;
 }
 
 const { post } = Astro.props;
+const { title, date, excerpt } = post.file;
 const url = join(Astro.site!.pathname, post.slug);
 ---
 
 <article>
-	<a href={url}><h2>{post.file.title}</h2></a>
+	<time datetime={date.toISOString()}>
+		{date.toLocaleString("default", { month: "short" })}
+		{date.getDate()},
+		{date.getFullYear()}
+	</time>
+	<h2><a href={url}>{title}</a></h2>
+	<p><i>{excerpt}</i></p>
+	<a href={url}>→ Keep reading</a>
 </article>
 
 <style>
+	article {
+		padding: 1rem;
+		border-top: solid 1px gray;
+
+		&:first-child {
+			border-top: none;
+			padding-top: 0;
+		}
+	}
+	
+	time {
+		color: var(--gray);
+	}
+
+	a {
+		color: var(--dark);
+		text-decoration: none;
+	}
+
 	h2 {
-		color: var(--darker);
-		text-decoration: underline currentColor 2px;
+		font-size: 2rem;
+		margin: 0;
+
+		a {
+			position: relative;
+			color: var(--black);
+		}
+	}
+
+	p {
+		color: var(--gray);
+		padding: .5rem 1rem 1rem 1rem;
+		margin: 0;
 	}
 </style>

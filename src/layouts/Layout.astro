@@ -20,7 +20,7 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 	</head>
 	<body>
 		<header>
-			<h1>Clikuki's Blog</h1>
+			<h1><a href="/blog">Clikuki's Blog</a></h1>
 			<p><i>Assorted collection of nonsense</i></p>
 		</header>
 		<main>
@@ -56,6 +56,9 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 		--dark: #D96F32;
 		--light: #F8B259;
 
+		--gray: #777;
+		--black: #222;
+
 		scrollbar-color: var(--darker) var(--light);
 		scrollbar-width: thin;
   	scroll-behavior: smooth;
@@ -71,13 +74,10 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 
 		margin: 0;
 		background-color: var(--white);
-		/* background-color: var(--darker); */
 	}
 	
 	header {
-		/* padding: 1rem 1rem 1rem 10%; */
 		display: grid;
-		/* grid-template-columns: 1fr 150ch 1fr; */
 		grid-template-columns: 1fr 5fr 1fr;
 
 		font-family: monospace;
@@ -89,16 +89,30 @@ const title = pageTitle ? `${SiteName} | ${pageTitle}` : SiteName;
 		box-shadow:
 			inset 0 0 1rem var(--darker),
 			0 0 2rem var(--darker);
+		animation: scrollBG 4000ms linear infinite;
 
 		h1 {
 			grid-column: 2;
-			font-size: 3rem;
 			margin: 0;
+			font-size: 3rem;
+
+			a {
+				color: inherit;
+			}
 		}
 
 		p {
 			grid-column: 2;
-			margin: 0 0 1rem 1rem;
+			margin: .3rem 0 1rem 1rem;
+		}
+	}
+
+	@keyframes scrollBG {
+		from {
+			background-position: 0 0;
+		}
+		to {
+			background-position: 40px -40px;
 		}
 	}
 
