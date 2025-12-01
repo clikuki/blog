@@ -1,20 +1,4 @@
 ---
-import Image from "astro/components/Image.astro";
-import online_quiz from "../tmp/online_quiz.jpg";
-import schoolwork from "../tmp/schoolwork.jpg";
-import snuggle1 from "../tmp/snuggle_1.jpg";
-import snuggle2 from "../tmp/snuggle_2.jpg";
-import snuggle3 from "../tmp/snuggle_3.jpg";
-import snuggle4 from "../tmp/snuggle_4.jpg";
-import lips from "../tmp/lips.png";
-import upper_teeth from "../tmp/upper_teeth.png";
-import lower_teeth from "../tmp/lower_teeth.png";
-import clubhouse from "../tmp/clubhouse.jpg";
-import trees from "../tmp/trees.jpg";
-import util_pole from "../tmp/util_pole.jpg";
-import water_tower from "../tmp/water_tower.jpg";
-import lunch from "../tmp/lunch.jpg";
-
 export const title = "Day 2: Electric Boogaloo";
 export const date = new Date("2025-12-01");
 export const excerpt = "Let's see how long I can keep doing daily posts.";
@@ -31,10 +15,11 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 			</p>
 		</div>
 		<figure>
-			<Image
-				src={online_quiz}
+			<img
+				src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603846/online_quiz_ub92bq.webp"
 				alt="Me doing the online quiz"
-				width="300"
+				width={300}
+				height={400}
 			/>
 			<figcaption>Aced.</figcaption>
 		</figure>
@@ -42,10 +27,11 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 
 	<div class="side-by-side">
 		<figure>
-			<Image
-				src={schoolwork}
+			<img
+				src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603845/schoolwork_x09f2v.webp"
 				alt="My desk showing my workspace"
-				width="300"
+				width={300}
+				height={225}
 			/>
 			<figcaption>Werk</figcaption>
 		</figure>
@@ -59,25 +45,29 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 	</p>
 
 	<div class="collage cat">
-		<Image
-			src={snuggle1}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603845/snuggle_1_vecfyc.webp"
 			alt="Marble is snuggling, debut"
 			width={300}
+			height={225}
 		/>
-		<Image
-			src={snuggle2}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603846/snuggle_2_qhmw7a.webp"
 			alt="Marble is snuggling, sequel"
 			width={300}
+			height={225}
 		/>
-		<Image
-			src={snuggle4}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603847/snuggle_4_sh0pv4.webp"
 			alt="Marble is snuggling, trilogy"
 			width={300}
+			height={225}
 		/>
-		<Image
-			src={snuggle3}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603847/snuggle_3_xscb92.webp"
 			alt="Marble is snuggling, finale"
 			width={300}
+			height={225}
 		/>
 	</div>
 
@@ -89,20 +79,23 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 		<div class="teeth collage">
 			<div></div>
 			<span>BOO</span>
-			<Image 
-				src={upper_teeth}
+			<img 
+				src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603846/upper_teeth_qdyxyo.webp"
 				alt="My upper teeth. Uh..."
 				width={300}
+				height={187}
 			/>
-			<Image 
-				src={lower_teeth}
+			<img 
+				src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603845/lower_teeth_gwpasr.webp"
 				alt="My lower teeth. Hmm..."
 				width={300}
+				height={187}
 			/>
-			<Image 
-				src={lips}
+			<img 
+				src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603847/lips_gmmhzp.webp"
 				alt="My lips. Yeah."
 				width={300}
+				height={187}
 			/>
 		</div>
 	</div>
@@ -112,25 +105,29 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 	</p>
 
 	<div class="image-set">
-		<Image
-			src={clubhouse}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603845/clubhouse_w8bsop.webp"
 			alt="My neighborhood's clubhouse"
 			width={300}
+			height={225}
 		/>
-		<Image
-			src={trees}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603847/trees_flgdcz.webp"
 			alt="Some trees lining the public area"
 			width={300}
+			height={225}
 		/>
-		<Image
-			src={util_pole}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603848/util_pole_kb9k24.webp"
 			alt="Some random utility pole"
 			width={250}
+			height={381}
 		/>
-		<Image
-			src={water_tower}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603848/water_tower_xjgcbm.webp"
 			alt="A water tower"
 			width={250}
+			height={364}
 		/>
 	</div>
 
@@ -139,10 +136,11 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 	</p>
 
 	<figure>
-		<Image
-			src={lunch}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764603845/lunch_hakj9y.webp"
 			alt="Adobo for lunch"
 			width={400}
+			height={384}
 		/>
 		<figcaption>Adobo for lunch</figcaption>
 	</figure>
