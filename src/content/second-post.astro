@@ -1,0 +1,181 @@
+---
+import Image from "astro/components/Image.astro";
+import online_quiz from "../tmp/online_quiz.jpg";
+import schoolwork from "../tmp/schoolwork.jpg";
+import snuggle1 from "../tmp/snuggle_1.jpg";
+import snuggle2 from "../tmp/snuggle_2.jpg";
+import snuggle3 from "../tmp/snuggle_3.jpg";
+import snuggle4 from "../tmp/snuggle_4.jpg";
+import lips from "../tmp/lips.png";
+import upper_teeth from "../tmp/upper_teeth.png";
+import lower_teeth from "../tmp/lower_teeth.png";
+import clubhouse from "../tmp/clubhouse.jpg";
+import trees from "../tmp/trees.jpg";
+import util_pole from "../tmp/util_pole.jpg";
+import water_tower from "../tmp/water_tower.jpg";
+import lunch from "../tmp/lunch.jpg";
+
+export const title = "Day 2: Electric Boogaloo";
+export const date = new Date("2025-12-01");
+export const excerpt = "Let's see how long I can keep doing daily posts.";
+---
+
+<div class="post-body">
+	<div class="side-by-side">
+		<div>
+			<p>
+				Just want to start with a technical update to the site: all images and such assets that this site should use are now loaded from the cloud. Hopefully, this will prevent the GitHub repo from ballooning in size with all the binary changes. Unfortunately, I am on the free plan, so if for some reason 10 bagajillion users load this site <i>(idk, automated <abbr title="Distributed Denial of Service ">ddos</abbr>?)</i>, every asset will simply fail to load.
+			</p>
+			<p>
+				All that said, I'm back for round two. This time, its a Monday; ergo, school. Thankfully, we do remote lessons today and tommorow, so I'm still just at home. First class: wasn't a class at all, just an online quiz.
+			</p>
+		</div>
+		<figure>
+			<Image
+				src={online_quiz}
+				alt="Me doing the online quiz"
+				width="300"
+			/>
+			<figcaption>Aced.</figcaption>
+		</figure>
+	</div>
+
+	<div class="side-by-side">
+		<figure>
+			<Image
+				src={schoolwork}
+				alt="My desk showing my workspace"
+				width="300"
+			/>
+			<figcaption>Werk</figcaption>
+		</figure>
+		<p>
+			My remaining classes were Chemistry and Entrepreneurship. The former was on the ideal gas law <i>(PV=nRT)</i> which is cool, but it's pretty much just algebraic manipulations. I tried to get ahead on the seatwork, but it took a fair bit. The latter, if I'm being honest, I don't remember much of apart from her announcements about entrepreneur week and such.
+		</p>
+	</div>
+
+	<p>
+		With that, school was pretty much finished. Before I continue, I must fulfill my obligations of presenting my cat.
+	</p>
+
+	<div class="collage cat">
+		<Image
+			src={snuggle1}
+			alt="Marble is snuggling, debut"
+			width={300}
+		/>
+		<Image
+			src={snuggle2}
+			alt="Marble is snuggling, sequel"
+			width={300}
+		/>
+		<Image
+			src={snuggle4}
+			alt="Marble is snuggling, trilogy"
+			width={300}
+		/>
+		<Image
+			src={snuggle3}
+			alt="Marble is snuggling, finale"
+			width={300}
+		/>
+	</div>
+
+	<div class="side-by-side">
+		<p>
+			Where was I? Oh yeah, after school, I went to my dentist for my monthly dental brace adjustment. I actually only found out about this today, in the middle of my last class, so it was a bit of a rush to get there. I still had to wait a bit as they were still having lunch by the time I had arrived. Here's a pic of my gnashers after adjustment!
+		</p>
+
+		<div class="teeth collage">
+			<div></div>
+			<span>BOO</span>
+			<Image 
+				src={upper_teeth}
+				alt="My upper teeth. Uh..."
+				width={300}
+			/>
+			<Image 
+				src={lower_teeth}
+				alt="My lower teeth. Hmm..."
+				width={300}
+			/>
+			<Image 
+				src={lips}
+				alt="My lips. Yeah."
+				width={300}
+			/>
+		</div>
+	</div>
+
+	<p>
+		Those pearly yellowish-whites aren't the only thing I brought back. I snapped pictures of my neighborhood for the express purposes of documenting at least some part of my day to put into today's blog. Are they good? Not really, but I did at least color grade them as they would have looked blander otherwise.
+	</p>
+
+	<div class="image-set">
+		<Image
+			src={clubhouse}
+			alt="My neighborhood's clubhouse"
+			width={300}
+		/>
+		<Image
+			src={trees}
+			alt="Some trees lining the public area"
+			width={300}
+		/>
+		<Image
+			src={util_pole}
+			alt="Some random utility pole"
+			width={250}
+		/>
+		<Image
+			src={water_tower}
+			alt="A water tower"
+			width={250}
+		/>
+	</div>
+
+	<p>
+		There isn't much to say about the end of the day, so closing today's post is a picture of today's lunch. No fancy plating <i>(pretty messy, actually)</i> or food, just feels approrpiate for a blog. Anyway, lunch is Adobo. I would say Adobo is second best of the Filipino food my mother cooks, first being sinigang. Salty flavors are a favorite of mine.
+	</p>
+
+	<figure>
+		<Image
+			src={lunch}
+			alt="Adobo for lunch"
+			width={400}
+		/>
+		<figcaption>Adobo for lunch</figcaption>
+	</figure>
+</div>
+
+<style>
+	.collage.cat {
+		height: 33rem;
+		>img {
+			&:nth-of-type(1) { translate: -43% -49%; rotate: -21deg; }
+			&:nth-of-type(2) { translate: -46% 48%; rotate: 11deg; }
+			&:nth-of-type(3) { translate: 41% 46%; rotate: -9deg; }
+			&:nth-of-type(4) { translate: 51% -47%; rotate: 18deg; }
+		}
+	}
+
+	.teeth {
+		img { scale: 1; }
+		img:nth-of-type(1) { scale: 1.04; translate: 0 1px; }
+		img:nth-of-type(2) { scale: 1.04; translate: 0 -1px; }
+		span { translate: 0 -5px; font-weight: 700; }
+
+		div {
+			width: 270px;
+			height: 130px;
+			border-radius: 50%;
+			z-index: 1;
+
+			&:hover {
+				&+span+img { translate: 0 -10px;
+					&+img { translate: 0 15px; }
+				}
+			}
+		}
+	}
+</style>

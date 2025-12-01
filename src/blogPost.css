@@ -25,15 +25,16 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		flex-wrap: wrap;
 	}
 	
 	.collage {
 		display: grid;
 		grid-template-areas: "a";
-		justify-content: center;
+		justify-items: center;
 		align-items: center;
 
-		> img {
+		> * {
 			grid-area: a;
 		}
 	}
@@ -41,5 +42,10 @@
 	.side-by-side {
 		display: flex;
 		justify-content: space-between;
+		gap: 1rem;
+
+		figure, img {
+			margin: 0;
+		}
 	}
 }

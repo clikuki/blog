@@ -24,4 +24,8 @@ pnpm-debug.log*
 .idea/
 
 # repo specific
+# GH pages already has favicon
 favicon.ico
+
+# working dir for assets when making new posts
+tmp/
