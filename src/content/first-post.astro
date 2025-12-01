@@ -1,13 +1,4 @@
 ---
-import Image from "astro/components/Image.astro";
-import feeding_panda from "../images/feeding_panda.jpg";
-import smokey_eating from "../images/smokey_eating.jpg";
-import marble_scritch_1 from "../images/marble_scritch_1.jpg";
-import marble_scritch_2 from "../images/marble_scritch_2.jpg";
-import marble_face_bury from "../images/marble_burying_her_face.jpg";
-import script_work from "../images/script_work.jpg";
-import blinding_xmas_tree from "../images/blinding_christmas_tree.gif";
-
 export const title = "first post, yippee";
 export const date = new Date("2025-11-30");
 export const excerpt = "Hello, world.";
@@ -30,15 +21,17 @@ export const excerpt = "Hello, world.";
 	</p>
 
 	<div class="image-set">
-		<Image
-			src={feeding_panda}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588467/feeding_panda_d3e0kd.webp"
 			alt="Our dog, panda, waiting for her meal"
-			width={300}
+			width="300"
+			height="400"
 		/>
-		<Image
-			src={smokey_eating}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588460/smokey_eating_ubazwo.webp"
 			alt="Smokey is working on her breakfast"
-			width={300}
+			width="300"
+			height="225"
 		/>
 	</div>
 
@@ -47,20 +40,23 @@ export const excerpt = "Hello, world.";
 	</p>
 
 	<div class="collage">
-		<Image
-			src={marble_scritch_1}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588451/marble_scritch_1_gqb2jj.webp"
 			alt="Marble getting a scritch from the side"
-			width={300}
+			width="300"
+			height="225"
 		/>
-		<Image
-			src={marble_scritch_2}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588455/marble_scritch_2_bqxmiz.webp"
 			alt="Marble looking forward while getting scritched"
-			width={300}
+			width="300"
+			height="225"
 		/>
-		<Image
-			src={marble_face_bury}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588450/marble_burying_her_face_dsykvt.webp"
 			alt="Marble buries her face in my pants"
-			width={300}
+			width="300"
+			height="225"
 		/>
 	</div>
 
@@ -73,10 +69,11 @@ export const excerpt = "Hello, world.";
 	</p>
 
 	<figure>
-		<Image
-			src={script_work}
+		<img
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764588458/script_work_li83qe.webp"
 			alt="Photo of script draft from my phone lol"
-			width={500}
+			width="500"
+			height="375"
 		/>
 		<figcaption>Intriguing stuff.</figcaption>
 	</figure>
@@ -84,16 +81,17 @@ export const excerpt = "Hello, world.";
 	<div class="side-by-side">
 		<div>
 			<p>
-				And, that was the day done. As I am finishing this off, it is currently 12:51 AM, so I definitely need to stop. This was mostly images, but I'm not entirely certain what to write in detail, and images are more interesting anyway. In the coming days and blog posts, I plan on working on this website and hopefully having more dynamic and interactive features, but that's far off.
+				And, that's the day done. As I am finishing this off, it is currently 12:51 AM, so I definitely need to stop. This was mostly images, but I'm not entirely certain what to write in detail, and images are more interesting anyway. In the coming days and blog posts, I plan on working on this website and hopefully having more dynamic and interactive features, but that's far off.
 			</p>
 			<p>
 				To end off this blog's first post, here is a ridiculously flashy to the point of blinding christmas tree that my mother setup. Happy early Christmas, ya'll.
 			</p>
 		</div>
 		<img
-			src={blinding_xmas_tree.src}
+			src="https://res.cloudinary.com/da0vu2cqm/image/upload/v1764590191/blinding_christmas_tree_c9g4u9.gif"
 			alt="A very flashy, frankly blinding, christmas tree"
-			width={200}
+			width="200"
+			height="355"
 		/>
 	</div>
 </div>
