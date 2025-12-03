@@ -49,3 +49,33 @@
 		}
 	}
 }
+
+@media screen and (max-width: 470px) {
+.post-body {
+	img {
+		max-width: 100%;
+		width: auto;
+		height: auto;
+	}
+
+	.side-by-side {
+		flex-direction: column;
+		
+		figure, img {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.collage {
+		display: flex;
+		flex-direction: column;
+		height: auto !important;
+		padding: 2rem 0;
+
+		img {
+			position: initial;
+			translate: 0 !important;
+		}
+	}
+}	
+}

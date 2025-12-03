@@ -76,7 +76,7 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 			Where was I? Oh yeah, after school, I went to my dentist for my monthly dental brace adjustment. I actually only found out about this today, in the middle of my last class, so it was a bit of a rush to get there. I still had to wait a bit as they were still having lunch by the time I had arrived. Here's a pic of my gnashers after adjustment!
 		</p>
 
-		<div class="teeth collage">
+		<div class="teeth">
 			<div></div>
 			<span>BOO</span>
 			<img 
@@ -147,7 +147,7 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 </div>
 
 <style>
-	.collage.cat {
+	.collage {
 		height: 33rem;
 		>img {
 			&:nth-of-type(1) { translate: -43% -49%; rotate: -21deg; }
@@ -158,6 +158,15 @@ export const excerpt = "Let's see how long I can keep doing daily posts.";
 	}
 
 	.teeth {
+		display: grid;
+		grid-template-areas: "a";
+		justify-items: center;
+		align-items: center;
+
+		* {
+			grid-area: a;
+		}
+
 		img { scale: 1; }
 		img:nth-of-type(1) { scale: 1.04; translate: 0 1px; }
 		img:nth-of-type(2) { scale: 1.04; translate: 0 -1px; }
